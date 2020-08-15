@@ -17,7 +17,7 @@ index abb1388ba1..79e12bd3ff 100755
  			local ipad
  			case "$1" in
 -				lan) ipad=${ipaddr:-"192.168.1.1"} ;;
-+				lan) ipad=${ipaddr:-"192.168.2.1"} ;;
++				lan) ipad=${ipaddr:-"192.168.5.1"} ;;
  				*) ipad=${ipaddr:-"192.168.$((addr_offset++)).1"} ;;
  			esac
  
