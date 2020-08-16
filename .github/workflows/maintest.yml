@@ -27,7 +27,8 @@ jobs:
       - name: set env
         id: admin
         run: |
-          release_tag="OpenWRT_fymsc_NanoPi-R2S-$(date +%Y-%m-%d)"
+          release_tag="tput files
+archive_tag=OpenWrt-FYMSC-NanoPi-R2S_v3.7$(date +%y%m%d%H%M%S)"
           echo "##[set-output name=release_tag;]$release_tag"
           # 引用变量
           # ${{ steps.admin.outputs.release_tag }}
@@ -61,4 +62,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.admin.outputs.release_tag }}
-          path: OpenWRT_*.tar.gz
+          path: OpenWRT-*.tar.gz
