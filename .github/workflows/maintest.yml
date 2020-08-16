@@ -61,4 +61,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.admin.outputs.release_tag }}
-          path: OpenWrt_*.tar.gz
+          path: OpenWRT_*.tar.gz
