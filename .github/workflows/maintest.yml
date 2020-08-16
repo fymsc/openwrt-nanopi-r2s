@@ -4,7 +4,7 @@
 # Copyright (c) 2020, Chuck <fanck0605@qq.com>
 #
 
-name: openwrt-master V3.4_$(date +%Y%m%d)
+name: openwrt-master V3.5
 
 on:
   push:
@@ -44,9 +44,10 @@ jobs:
           git config --global user.email "action@github.com"
       - name: Build OpenWrt
         run: |
+          chmod +x ./buildtest.sh
           ./buildtest.sh
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: OpenWrt_fymsc-V3.4_$(date +%Y%m%d)_NanoPi-R2S
+          name: OpenWrt_fymsc-V3.5_NanoPi-R2S
           path: OpenWrt_*_NanoPi-R2S.tar.gz
