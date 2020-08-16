@@ -23,6 +23,14 @@ jobs:
     if: github.event.repository.owner.id == github.event.sender.id
 
     steps:
+      # 设置变量
+      - name: set env
+        id: admin
+        run: |
+          release_tag="OpenWRT_fymsc_NanoPi-R2S-$(date +%Y-%m-%d)"
+          echo "##[set-output name=release_tag;]$release_tag"
+          # 引用变量
+          # ${{ steps.admin.outputs.release_tag }}
 
       - name: Checkout Project
         uses: actions/checkout@v2
@@ -42,12 +50,16 @@ jobs:
           sudo -E apt-get clean
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
+          
       - name: Build OpenWrt
         run: |
+          # 给./buildtest.sh添加权限，不然无法编译
           chmod +x ./buildtest.sh
           ./buildtest.sh
+          
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: OpenWrt_fymsc-V3.5_NanoPi-R2S
-          path: OpenWrt_*_NanoPi-R2S.tar.gz
+          name: ${{ steps.admin.outputs.release_tag }}
+          # 注意下面名字可能会出问题
+          path: OpenWrt_*.tar.gz
