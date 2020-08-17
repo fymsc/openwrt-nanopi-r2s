@@ -4,7 +4,7 @@
 # Copyright (c) 2020, Chuck <fanck0605@qq.com>
 #
 
-name: openwrt-master TestV3.7
+name: openwrt-master TestV3.8
 
 on:
   push:
@@ -60,5 +60,5 @@ jobs:
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ steps.admin.outputs.release_tag }}
+          name: v3.8-${{ steps.admin.outputs.release_tag }}
           path: OpenWRT-*.tar.gz
