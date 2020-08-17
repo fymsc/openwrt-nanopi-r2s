@@ -97,7 +97,7 @@ make -j$(($(nproc) + 1)) || make -j1 V=s
 popd
 
 # package output files
-archive_tag=OpenWRT-FYMSC-NanoPi-R2S_v3.7$(date +%y%m%d%H%M%S)
+archive_tag=OpenWRT-FYMSC-NanoPi_R2S-$(date +%y%m%d)
 pushd openwrt/bin/targets/*/*
 # repack openwrt*.img.gz
 set +e
