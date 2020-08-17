@@ -86,7 +86,7 @@ popd
 
 # customize configs
 pushd openwrt
-cat ../config.seed > .config
+cat ../configtest.seed > .config
 make defconfig
 popd
 
